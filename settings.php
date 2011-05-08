@@ -84,8 +84,8 @@ function aps_render_settings_interval_sanitize( $data ) {
 		'day' => 60*60*24,
 	);
 	
-	$data['min'] *= $factors[$data['min_unit']];
-	$data['max'] *= $factors[$data['max_unit']];
+	$data['min'] *= isset( $factors[$data['min_unit']] ) ? $factors[$data['min_unit']] : 1;
+	$data['max'] *= isset( $factors[$data['max_unit']] ) ? $factors[$data['max_unit']] : 1;
 	
 	unset( $data['min_unit'], $data['max_unit'] );
 	
