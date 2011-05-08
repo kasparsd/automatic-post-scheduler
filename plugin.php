@@ -79,7 +79,7 @@ function aps_publish_box() {
 		return;
 ?>
 <div class="misc-pub-section" id="aps_schedule_post">
-	<label><input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php echo ( $post->post_status == 'publish' ) ? '' : 'checked="checked"'; ?>/> <?php _e( 'Schedule as soon as posible', 'autoscheduler' ); ?></label>
+	<label><input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php echo ( aps_current_user_disable_default() ) ? '' : 'checked="checked"'; ?>/> <?php _e( 'Schedule as soon as posible', 'autoscheduler' ); ?></label>
 </div>
 <?php
 }
