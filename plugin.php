@@ -15,7 +15,11 @@ License: GPL2
 
 add_action( 'init', 'aps_init' );
 function aps_init() {
-	add_filter( 'wp_insert_post_data', 'aps_check_and_schedule' );
+	// Attach checkbox to publish box on edit post page
+	add_action( 'post_submitbox_misc_actions', 'aps_publish_box' );
+	
+	// Actually delay/schedule post publishing
+	add_filter( 'wp_insert_post_data', 'aps_check_and_schedule', 10, 2 );
 }
 
 /**
@@ -25,12 +29,18 @@ function aps_init() {
  * @uses aps_get_nearest_open_time()
  * 
  * @param object $data Post object
+ * @param object $postarr Raw HTTP POST data
  * @return object Filtered post object
  */
-function aps_check_and_schedule( $data ) {
+function aps_check_and_schedule( $data, $postarr ) {
+	// check if scheduling should occur
+	if( !( isset( $postarr['aps_schedule_post'] ) && $postarr['aps_schedule_post'] ) )
+		return $data;
+	
 	// post_status is definately set, since we're using sanitized data. No check necessary
 	$post_status = $data['post_status'];
 	
+	// only invoke upon publishing
 	if ( $post_status != 'publish' )
 		return $data;
 	
@@ -46,6 +56,22 @@ function aps_check_and_schedule( $data ) {
 	$data['post_date_gmt'] = date( 'Y-m-d H:i:s', $time_of_post_gmt );
 	
 	return $data;
+}
+
+/**
+ * Adds schedule checkbox on post page, in publish box (aka post submit box)
+ * 
+ * @since 0.9.1
+ */
+function aps_publish_box() {
+	global $post;
+	if ( !current_user_can( 'publish_posts' ) || in_array( $post->post_status, array( 'publish', 'future' ) ) )
+		return;
+?>
+<div class="misc-pub-section" id="aps_schedule_post">
+	<label><input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php echo ( $post->post_status == 'publish' ) ? '' : 'checked="checked"'; ?>/> <?php _e( 'Schedule as soon as posible', 'autoscheduler' ); ?></label>
+</div>
+<?php
 }
 
 /**
