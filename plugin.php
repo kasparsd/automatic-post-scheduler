@@ -33,6 +33,10 @@ function aps_init() {
  * @return object Filtered post object
  */
 function aps_check_and_schedule( $data, $postarr ) {
+	// don't autoschedule pages
+	if( $data['post_type'] == 'page' )
+		return $data;
+	
 	// check if scheduling should occur
 	if( !( isset( $postarr['aps_schedule_post'] ) && $postarr['aps_schedule_post'] ) )
 		return $data;
@@ -65,7 +69,13 @@ function aps_check_and_schedule( $data, $postarr ) {
  */
 function aps_publish_box() {
 	global $post;
+	
+	// only display for authorized users
 	if ( !current_user_can( 'publish_posts' ) || in_array( $post->post_status, array( 'publish', 'future' ) ) )
+		return;
+	
+	// don't display for pages
+	if( $post->post_type == 'page' )
 		return;
 ?>
 <div class="misc-pub-section" id="aps_schedule_post">
