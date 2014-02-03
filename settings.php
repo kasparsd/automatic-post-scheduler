@@ -161,7 +161,7 @@ function aps_current_user_disable_default( $uid = false ) {
 	if( $uid === false )
 		$uid = $current_user->ID;
 	
-	return get_user_meta( $uid, 'aps_disable_default', true );
+	return (bool) get_user_meta( $uid, 'aps_disable_default', true );
 
 }
 
