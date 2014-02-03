@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Automatic Post Scheduler
-Plugin URI: http://tudorsandu.ro/
+Plugin URI: https://github.com/kasparsd/automatic-post-scheduler
 Description: A plugin that automatically schedules posts depending on a min/max threshold and the last post's publish date and time. 
-Version: 0.9.1
-Author: Tudor Sandu
+Version: 0.9.2
+Author: Tudor Sandu, Kaspars Dambis
 Author URI: http://tudorsandu.ro/
 License: GPL2
 */
