@@ -84,10 +84,12 @@ function aps_publish_box() {
 	if( $post->post_type == 'page' )
 		return;
 
+	$disable_default = aps_current_user_disable_default();
+
 	?>
 	<div class="misc-pub-section" id="aps_schedule_post">
 		<label>
-			<input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php checked( aps_current_user_disable_default() ); ?> /> 
+			<input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php checked( $disable_default, false ); ?> /> 
 			<?php _e( 'Schedule as soon as posible', 'automaticpostscheduler' ); ?>
 		</label>
 	</div>

@@ -164,7 +164,7 @@ function aps_user_options( $user ) {
 		</th>
 		<td>
 			<label>
-				<input type="checkbox" value="1" <?php checked( ! $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automaticpostscheduler' ); ?>
+				<input type="checkbox" value="1" <?php checked( $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automaticpostscheduler' ); ?>
 			</label>
 		</td>
 	</tr>
