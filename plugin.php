@@ -9,10 +9,6 @@ Author URI: http://tudorsandu.ro/
 License: GPL2
 */
 
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
-
-
 add_action( 'init', 'aps_init' );
 function aps_init() {
 	// Attach checkbox to publish box on edit post page
