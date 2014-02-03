@@ -121,4 +121,3 @@ function aps_user_options_update( $uid ) {
 	update_user_meta( $uid, 'aps_disable_default', isset($_POST['aps_disable_default']) ? $_POST['aps_disable_default'] : '' );
 }
 
-?>
