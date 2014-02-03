@@ -55,7 +55,7 @@ function aps_check_and_schedule( $data, $postarr ) {
 	if ( $post_status != 'publish' )
 		return $data;
 	
-	$time_of_post = aps_get_nearest_open_time();
+	$time_of_post = aps_get_nearest_open_time( $data['post_type'] );
 	
 	// publish immediately?
 	if ( $time_of_post < current_time( 'timestamp' ) )
@@ -111,20 +111,16 @@ function aps_publish_box() {
  * @return int Timestamp
  * 
  */
-function aps_get_nearest_open_time() {
+function aps_get_nearest_open_time( $post_type = 'post' ) {
 
 	// get furthest scheduled post
 	$post = get_posts( array(
 		'numberposts' => 1,
-		'post_status' => 'future'
+		'post_status' => array( 'future', 'publish' ),
+		'post_type' => $post_type
 	) );
-
-	// if no scheduled posts, get furthest published post
-	if( empty( $post ) ) {
-		$post = array_pop( get_posts( 'numberposts=1' ) );
-	} else {
-		$post = array_pop( $post );
-	}
+	
+	$post = array_pop( $post );
 	
 	return strtotime( $post->post_date ) + aps_get_interval();
 
