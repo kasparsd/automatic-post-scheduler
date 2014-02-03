@@ -127,7 +127,7 @@ function aps_render_settings_interval() {
 		<?php aps_select_unit( 'aps_interval_max_unit', $max_unit, 'aps_interval[max_unit]' ); ?>
 		
 		<p class="description">
-			<?php _e( 'These values define the interval limits for the Automatic Post Scheduler plugin.', 'automaticpostscheduler' ); ?>
+			<?php esc_html_e( 'These values define the interval limits for the Automatic Post Scheduler plugin.', 'automaticpostscheduler' ); ?>
 		</p>
 	<?php
 
