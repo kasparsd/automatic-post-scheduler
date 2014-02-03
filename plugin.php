@@ -12,6 +12,10 @@ Text Domain: automaticpostscheduler
 */
 
 
+// Include admin settings
+require_once( dirname( __FILE__ ) . '/settings.php' );
+
+
 add_action( 'init', 'aps_init' );
 
 function aps_init() {
@@ -141,7 +145,4 @@ function aps_get_interval() {
 	return rand( $interval['min'], $interval['max'] );
 
 }
-
-
-require_once( 'settings.php' );
 
