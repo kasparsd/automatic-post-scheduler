@@ -94,7 +94,7 @@ function aps_publish_box() {
 	<div class="misc-pub-section" id="aps_schedule_post">
 		<label>
 			<input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php checked( $disable_default, false ); ?> /> 
-			<?php esc_html_e( 'Schedule as soon as posible', 'automaticpostscheduler' ); ?>
+			<?php esc_html_e( 'Schedule as soon as possible', 'automaticpostscheduler' ); ?>
 		</label>
 	</div>
 	<?php
