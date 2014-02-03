@@ -2,7 +2,7 @@
 /*
 Plugin Name: Automatic Post Scheduler
 Plugin URI: https://github.com/kasparsd/automatic-post-scheduler
-Description: Automatically schedule posts depending on a min/max threshold and the last post's publish date and time. Scheduling settings are located under "Settings > Writing". 
+Description: Automatically schedule posts depending on a min/max threshold and the last post's publish date and time. Post scheduling settings are located under "Settings &rarr; Writing". 
 Version: 0.9.3
 Author: Tudor Sandu, Kaspars Dambis
 Author URI: http://tudorsandu.ro/
