@@ -109,11 +109,10 @@ function aps_render_settings_interval() {
 			<input type="text" id="aps_interval_max" class="small-text" name="aps_interval[max]" value="<?php echo esc_attr( $max ); ?>" />
 		</label>
 		<?php aps_select_unit( 'aps_interval_max_unit', $max_unit, 'aps_interval[max_unit]' ); ?>
-		<br />
-
-		<span class="description">
+		
+		<p class="description">
 			<?php _e( 'These values define the interval limits for the Automatic Post Scheduler plugin.', 'automaticpostscheduler' ); ?>
-		</span>
+		</p>
 	<?php
 
 }
@@ -165,7 +164,7 @@ function aps_user_options( $user ) {
 		</th>
 		<td>
 			<label>
-				<input type="checkbox" value="1" <?php checked( $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automaticpostscheduler' ); ?>
+				<input type="checkbox" value="1" <?php checked( ! $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automaticpostscheduler' ); ?>
 			</label>
 		</td>
 	</tr>
