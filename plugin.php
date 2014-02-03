@@ -1,25 +1,31 @@
 <?php
 /*
 Plugin Name: Automatic Post Scheduler
-Plugin URI: http://tudorsandu.ro/
-Description: A plugin that automatically schedules posts depending on a min/max threshold and the last post's publish date and time. 
-Version: 0.9.1
-Author: Tudor Sandu
+Plugin URI: https://github.com/kasparsd/automatic-post-scheduler
+Description: Automatically schedule posts depending on a min/max threshold and the last post's publish date and time. Post scheduling settings are located under "Settings &rarr; Writing". 
+Version: 0.9.3
+Author: Tudor Sandu, Kaspars Dambis
 Author URI: http://tudorsandu.ro/
 License: GPL2
+Domain Path: /lang
+Text Domain: automaticpostscheduler
 */
 
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
+
+// Include admin settings
+require_once( dirname( __FILE__ ) . '/settings.php' );
 
 
 add_action( 'init', 'aps_init' );
+
 function aps_init() {
+
 	// Attach checkbox to publish box on edit post page
 	add_action( 'post_submitbox_misc_actions', 'aps_publish_box' );
 	
 	// Actually delay/schedule post publishing
 	add_filter( 'wp_insert_post_data', 'aps_check_and_schedule', 10, 2 );
+
 }
 
 /**
@@ -33,6 +39,7 @@ function aps_init() {
  * @return object Filtered post object
  */
 function aps_check_and_schedule( $data, $postarr ) {
+
 	// don't autoschedule pages
 	if( $data['post_type'] == 'page' )
 		return $data;
@@ -60,7 +67,9 @@ function aps_check_and_schedule( $data, $postarr ) {
 	$data['post_date_gmt'] = date( 'Y-m-d H:i:s', $time_of_post_gmt );
 	
 	return $data;
+
 }
+
 
 /**
  * Adds schedule checkbox on post page, in publish box (aka post submit box)
@@ -68,6 +77,7 @@ function aps_check_and_schedule( $data, $postarr ) {
  * @since 0.9.1
  */
 function aps_publish_box() {
+
 	global $post;
 	
 	// only display for authorized users
@@ -77,12 +87,20 @@ function aps_publish_box() {
 	// don't display for pages
 	if( $post->post_type == 'page' )
 		return;
-?>
-<div class="misc-pub-section" id="aps_schedule_post">
-	<label><input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php echo ( aps_current_user_disable_default() ) ? '' : 'checked="checked"'; ?>/> <?php _e( 'Schedule as soon as posible', 'autoscheduler' ); ?></label>
-</div>
-<?php
+
+	$disable_default = aps_current_user_disable_default();
+
+	?>
+	<div class="misc-pub-section" id="aps_schedule_post">
+		<label>
+			<input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php checked( $disable_default, false ); ?> /> 
+			<?php _e( 'Schedule as soon as posible', 'automaticpostscheduler' ); ?>
+		</label>
+	</div>
+	<?php
+
 }
+
 
 /**
  * Gets timestamp of a valid timestamp for a new public post based on the furthest published/scheduled post timestamp and interval options
@@ -94,11 +112,13 @@ function aps_publish_box() {
  * 
  */
 function aps_get_nearest_open_time() {
+
 	// get furthest scheduled post
 	$post = get_posts( array(
 		'numberposts' => 1,
 		'post_status' => 'future'
 	) );
+
 	// if no scheduled posts, get furthest published post
 	if( empty( $post ) ) {
 		$post = array_pop( get_posts( 'numberposts=1' ) );
@@ -107,7 +127,9 @@ function aps_get_nearest_open_time() {
 	}
 	
 	return strtotime( $post->post_date ) + aps_get_interval();
+
 }
+
 
 /**
  * Returns a random interval between the min and max constraints
@@ -117,9 +139,10 @@ function aps_get_nearest_open_time() {
  * @return integer Number of seconds 
  */
 function aps_get_interval() {
+
 	$interval = aps_get_interval_boundaries();
 	
 	return rand( $interval['min'], $interval['max'] );
+
 }
 
-require_once( 'settings.php' );
