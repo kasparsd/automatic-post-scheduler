@@ -27,7 +27,7 @@ function aps_plugin_settings_link( $links ) {
 	
 	$links[] = sprintf( 
 		'<a href="%s">%s</a>', 
-		admin_url( 'options-writing.php#aps' ), 
+		admin_url( 'options-writing.php#aps-settings' ), 
 		__( 'Settings', 'automaticpostscheduler' ) 
 	);
 	
@@ -174,7 +174,7 @@ function aps_user_options( $user ) {
 	$disable_default = aps_current_user_disable_default();
 	
 	?>
-	<tr id="">
+	<tr id="aps-settings">
 		<th scope="row">
 			<?php _e( 'Automatic Post Scheduler', 'automaticpostscheduler' ); ?>
 		</th>
