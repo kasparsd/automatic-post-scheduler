@@ -113,6 +113,7 @@ function aps_render_settings_interval() {
 	}
 
 	?>
+	<div id="aps-settings">
 		<label>
 			<?php _e( 'Minimum:', 'automaticpostscheduler' ); ?>
 			<input type="text" id="aps_interval_min" class="small-text" name="aps_interval[min]" value="<?php echo esc_attr( $min ); ?>" />
@@ -129,6 +130,7 @@ function aps_render_settings_interval() {
 		<p class="description">
 			<?php esc_html_e( 'These values define the interval limits for the Automatic Post Scheduler plugin.', 'automaticpostscheduler' ); ?>
 		</p>
+	</div>
 	<?php
 
 }
@@ -174,7 +176,7 @@ function aps_user_options( $user ) {
 	$disable_default = aps_current_user_disable_default();
 	
 	?>
-	<tr id="aps-settings">
+	<tr>
 		<th scope="row">
 			<?php _e( 'Automatic Post Scheduler', 'automaticpostscheduler' ); ?>
 		</th>
