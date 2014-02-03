@@ -100,24 +100,46 @@ function aps_current_user_disable_default( $uid = false ) {
 	return get_user_meta( $uid, 'aps_disable_default', true );
 }
 
+
 add_filter( 'personal_options', 'aps_user_options' );
+
 function aps_user_options( $user ) {
-	if( !user_can( $user->ID, 'publish_posts' ) )
+
+	if( ! user_can( $user->ID, 'publish_posts' ) )
 		return;
+
 	$disable_default = aps_current_user_disable_default();
+	
 	?>
 	<tr>
-	<th scope="row"><?php _e( 'Automatic post scheduler', 'autoscheduler' ); ?></th>
-	<td><label><input type="checkbox" value="1" <?php echo $disable_default ? 'checked="checked' : ""; ?>" name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)' ); ?></label></td>
+		<th scope="row">
+			<?php _e( 'Automatic post scheduler', 'autoscheduler' ); ?>
+		</th>
+		<td>
+			<label>
+				<input type="checkbox" value="1" <?php checked( $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php _e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)' ); ?>
+			</label>
+		</td>
 	</tr>
-	
 	<?php
 }
+
 
 add_action( 'personal_options_update', 'aps_user_options_update' );
 add_action( 'edit_user_profile_update', 'aps_user_options_update' );
 
 function aps_user_options_update( $uid ) {
-	update_user_meta( $uid, 'aps_disable_default', isset($_POST['aps_disable_default']) ? $_POST['aps_disable_default'] : '' );
+
+	$aps_disable_default = 0;
+
+	if ( isset( $_POST['aps_disable_default'] ) )
+		$aps_disable_default = 1;
+
+	update_user_meta( 
+		$uid, 
+		'aps_disable_default', 
+		$aps_disable_default
+	);
+
 }
 
