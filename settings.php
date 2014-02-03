@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 add_action( 'admin_init', 'aps_admin_init' );
 
@@ -16,6 +17,21 @@ function aps_admin_init() {
 		'aps_interval', 
 		'aps_render_settings_interval_sanitize' 
 	);
+
+}
+
+
+add_filter( 'plugin_action_links_' . plugin_basename( dirname( __FILE__ ) . '/plugin.php' ), 'aps_plugin_settings_link' );
+
+function aps_plugin_settings_link( $links ) {
+	
+	$links[] = sprintf( 
+		'<a href="%s">%s</a>', 
+		admin_url( 'options-writing.php#aps' ), 
+		__( 'Settings', 'automaticpostscheduler' ) 
+	);
+	
+	return $links;
 
 }
 
@@ -158,9 +174,9 @@ function aps_user_options( $user ) {
 	$disable_default = aps_current_user_disable_default();
 	
 	?>
-	<tr>
+	<tr id="">
 		<th scope="row">
-			<?php _e( 'Automatic post scheduler', 'autoscheduler' ); ?>
+			<?php _e( 'Automatic Post Scheduler', 'automaticpostscheduler' ); ?>
 		</th>
 		<td>
 			<label>
