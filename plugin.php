@@ -123,3 +123,4 @@ function aps_get_interval() {
 }
 
 require_once( 'settings.php' );
+
