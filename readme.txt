@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P6XRB
 Tags: posts, schedule, post status, future, scheduler, editorial, scheduling, automatic scheduling
 Requires at least: 2.0.2
 Tested up to: 3.8.1
-Stable tag: 0.9.2
+Stable tag: 0.9.1
 
 A plugin that automatically schedules posts depending on a min/max threshold and the last post's publish date and time.
 
@@ -34,6 +34,9 @@ Go to *Settings* > *Writing* in your WP admin.
 Yes, all you have to do is uncheck the *Schedule as soon as possible* box in the post publish box.
 
 == Changelog ==
+
+= 0.9.3 =
+* Add translation support, sanitise output, improve wording
 
 = 0.9.2 =
 * Tested with WordPress 3.8.1
