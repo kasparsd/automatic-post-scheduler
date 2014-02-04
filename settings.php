@@ -7,7 +7,7 @@ function aps_admin_init() {
 
 	add_settings_field( 
 		'aps_interval', 
-		__( 'Post Scheduling Interval', 'automatic-post-scheduler' ), 
+		__( 'Post Scheduling Interval', 'automaticpostscheduler' ), 
 		'aps_render_settings_interval', 
 		'writing' 
 	);
@@ -28,7 +28,7 @@ function aps_plugin_settings_link( $links ) {
 	$links[] = sprintf( 
 		'<a href="%s">%s</a>', 
 		admin_url( 'options-writing.php#aps-settings' ), 
-		__( 'Settings', 'automatic-post-scheduler' ) 
+		__( 'Settings', 'automaticpostscheduler' ) 
 	);
 	
 	return $links;
@@ -92,9 +92,9 @@ function aps_render_settings_interval() {
 	function aps_select_unit( $id = '', $value = null, $name = '' ) {
 
 		$options = array(
-			'min' => _x( 'minutes', 'Max/min X minutes between scheduled posts', 'automatic-post-scheduler' ),
-			'hour' => _x( 'hours', 'Max/min X hours between scheduled posts', 'automatic-post-scheduler' ),
-			'day' => _x( 'days', 'Max/min X days between scheduled posts', 'automatic-post-scheduler' )
+			'min' => _x( 'minutes', 'Max/min X minutes between scheduled posts', 'automaticpostscheduler' ),
+			'hour' => _x( 'hours', 'Max/min X hours between scheduled posts', 'automaticpostscheduler' ),
+			'day' => _x( 'days', 'Max/min X days between scheduled posts', 'automaticpostscheduler' )
 		);
 
 		if( empty( $name ) )
@@ -115,19 +115,20 @@ function aps_render_settings_interval() {
 	?>
 	<div id="aps-settings">
 		<label>
-			<?php _e( 'Between:', 'automatic-post-scheduler' ); ?>
+			<?php _e( 'Minimum:', 'automaticpostscheduler' ); ?>
 			<input type="text" id="aps_interval_min" class="small-text" name="aps_interval[min]" value="<?php echo esc_attr( $min ); ?>" />
 		</label>
 		<?php aps_select_unit( 'aps_interval_min_unit', $min_unit, 'aps_interval[min_unit]' ); ?>
+		<br />
 
 		<label for="aps_interval_max">
-			<?php _e( 'to:', 'automatic-post-scheduler' ); ?>
+			<?php _e( 'Maximum:', 'automaticpostscheduler' ); ?>
 			<input type="text" id="aps_interval_max" class="small-text" name="aps_interval[max]" value="<?php echo esc_attr( $max ); ?>" />
 		</label>
 		<?php aps_select_unit( 'aps_interval_max_unit', $max_unit, 'aps_interval[max_unit]' ); ?>
 		
 		<p class="description">
-			<?php esc_html_e( 'New posts will be scheduled to be published at this time interval.', 'automatic-post-scheduler' ); ?>
+			<?php esc_html_e( 'These values define the interval limits for the Automatic Post Scheduler plugin.', 'automaticpostscheduler' ); ?>
 		</p>
 	</div>
 	<?php
@@ -177,11 +178,11 @@ function aps_user_options( $user ) {
 	?>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Automatic Post Scheduler', 'automatic-post-scheduler' ); ?>
+			<?php _e( 'Automatic Post Scheduler', 'automaticpostscheduler' ); ?>
 		</th>
 		<td>
 			<label>
-				<input type="checkbox" value="1" <?php checked( $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php esc_html_e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automatic-post-scheduler' ); ?>
+				<input type="checkbox" value="1" <?php checked( $disable_default ); ?> name="aps_disable_default" id="aps_disable_default" /> <?php esc_html_e( 'Disable scheduling of my own posts by default (can be over-ridden for individual posts)', 'automaticpostscheduler' ); ?>
 			</label>
 		</td>
 	</tr>
