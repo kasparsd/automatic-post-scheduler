@@ -8,12 +8,23 @@ Author: Tudor Sandu, Kaspars Dambis
 Author URI: http://tudorsandu.ro/
 License: GPL2
 Domain Path: /lang
-Text Domain: automaticpostscheduler
+Text Domain: automatic-post-scheduler
 */
 
 
 // Include admin settings
 require_once( dirname( __FILE__ ) . '/settings.php' );
+
+
+// Load string translations
+add_action( 'plugins_loaded', 'aps_load_i10n' );
+
+function aps_load_i10n() {
+
+	// We do dirname/basename instead of plugin_basename in order to allow for symlinked plugins
+	load_plugin_textdomain( 'automatic-post-scheduler', false, basename( dirname( __FILE__ ) ) . '/lang/' );
+
+}
 
 
 add_action( 'init', 'aps_init' );
@@ -94,7 +105,7 @@ function aps_publish_box() {
 	<div class="misc-pub-section" id="aps_schedule_post">
 		<label>
 			<input type="checkbox" id="aps_schedule_post" name="aps_schedule_post" <?php checked( $disable_default, false ); ?> /> 
-			<?php esc_html_e( 'Schedule as soon as possible', 'automaticpostscheduler' ); ?>
+			<?php esc_html_e( 'Schedule as soon as possible', 'automatic-post-scheduler' ); ?>
 		</label>
 	</div>
 	<?php
