@@ -3,7 +3,7 @@ Contributors: tetele, kasparsd
 Tags: posts, schedule, post status, future, scheduler, editorial, scheduling, automatic scheduling, queue posts, queue
 Requires at least: 2.0.2
 Tested up to: 3.8.1
-Stable tag: 0.9.3
+Stable tag: 0.9.4
 
 A plugin that automatically schedules posts depending on a min/max threshold and the last post's publish date and time.
 
