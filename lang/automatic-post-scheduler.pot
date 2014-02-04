@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/automatic-post-scheduler\n"
-"POT-Creation-Date: 2014-02-03 11:43:12+00:00\n"
+"POT-Creation-Date: 2014-02-04 17:52:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,8 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: plugin.php:97
-msgid "Schedule as soon as posible"
+#: plugin.php:108
+msgid "Schedule as soon as possible"
 msgstr ""
 
 #: settings.php:10
@@ -25,39 +25,37 @@ msgid "Settings"
 msgstr ""
 
 #: settings.php:95
-msgctxt "Max/min X minutes between scheduled posts"
+msgctxt "Schedule post in X minutes"
 msgid "minutes"
 msgstr ""
 
 #: settings.php:96
-msgctxt "Max/min X hours between scheduled posts"
+msgctxt "Schedule post in X hours"
 msgid "hours"
 msgstr ""
 
 #: settings.php:97
-msgctxt "Max/min X days between scheduled posts"
+msgctxt "Schedule post in X days"
 msgid "days"
 msgstr ""
 
-#: settings.php:117
-msgid "Minimum:"
+#: settings.php:118
+msgid "Between"
 msgstr ""
 
 #: settings.php:124
-msgid "Maximum:"
+msgid "to"
 msgstr ""
 
 #: settings.php:130
-msgid ""
-"These values define the interval limits for the Automatic Post Scheduler "
-"plugin."
+msgid "New posts will be scheduled to be published at this time interval."
 msgstr ""
 
-#: settings.php:179
+#: settings.php:180
 msgid "Automatic Post Scheduler"
 msgstr ""
 
-#: settings.php:183
+#: settings.php:184
 msgid ""
 "Disable scheduling of my own posts by default (can be over-ridden for "
 "individual posts)"
