@@ -1,7 +1,6 @@
 === Automatic Post Scheduler ===
 Contributors: tetele, kasparsd
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=P6XRBCAL8BLF4&lc=RO&item_name=Automatic%20Post%20Scheduler&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
-Tags: posts, schedule, post status, future, scheduler, editorial, scheduling, automatic scheduling
+Tags: posts, schedule, post status, future, scheduler, editorial, scheduling, automatic scheduling, queue posts, queue
 Requires at least: 2.0.2
 Tested up to: 3.8.1
 Stable tag: 0.9.3
@@ -20,10 +19,10 @@ The plugin alters the default behavior of WP when publishing posts from the inte
 
 == Installation ==
 
-1. Upload `automatic-post-scheduler` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to *Settings* > *Writing* and choose min/max interval between posts
-4. Publish posts in rapid succession
+1. Upload `automatic-post-scheduler` to the `/wp-content/plugins/` directory.
+2. Activate "Automatic Post Scheduler" through the "Plugins" menu in WordPress.
+3. Go to *Settings* > *Writing* and choose the interval between scheduled posts.
+4. Publish posts in rapid succession.
 
 
 == Frequently Asked Questions ==
@@ -44,6 +43,9 @@ Yes, all you have to do is uncheck the *Schedule as soon as possible* box in the
 
 
 == Changelog ==
+
+= 0.9.4 =
+* Use more readable textdomain. Improve wording on the schedule settings page.
 
 = 0.9.3 =
 * Add translation support, sanitize string output, improve wording.
