@@ -1,0 +1,81 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Automatic Post Scheduler\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/automatic-post-scheduler\n"
+"POT-Creation-Date: 2014-02-04 17:52:48+00:00\n"
+"PO-Revision-Date: 2014-02-04 19:58+0200\n"
+"Last-Translator: Kaspars <kaspars@konstruktors.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#: plugin.php:108
+msgid "Schedule as soon as possible"
+msgstr "Pievienot publicēšanas rindai"
+
+#: settings.php:10
+msgid "Post Scheduling Interval"
+msgstr "Rakstu publicēšanas intervāls"
+
+#: settings.php:31
+msgid "Settings"
+msgstr "Uzstādījumi"
+
+#: settings.php:95
+msgctxt "Schedule post in X minutes"
+msgid "minutes"
+msgstr "minūtes"
+
+#: settings.php:96
+msgctxt "Schedule post in X hours"
+msgid "hours"
+msgstr "stundas"
+
+#: settings.php:97
+msgctxt "Schedule post in X days"
+msgid "days"
+msgstr "dienas"
+
+#: settings.php:118
+msgid "Between"
+msgstr "No"
+
+#: settings.php:124
+msgid "to"
+msgstr "līdz"
+
+#: settings.php:130
+msgid "New posts will be scheduled to be published at this time interval."
+msgstr "Ieraksti tiks sarindoti publicēšanai šādā intervālā."
+
+#: settings.php:180
+msgid "Automatic Post Scheduler"
+msgstr "Automātiskais rakstu plānotājs"
+
+#: settings.php:184
+msgid ""
+"Disable scheduling of my own posts by default (can be over-ridden for "
+"individual posts)"
+msgstr ""
+"Atslēgt automātisko rakstu plānošanu maniem rakstiem (šī iespēja var tikt "
+"mainīta individuāliem rakstiem)"
+
+#~ msgid "Minimum:"
+#~ msgstr "Minimums:"
+
+#~ msgid "Maximum:"
+#~ msgstr "Maksimums"
+
+#~ msgid ""
+#~ "These values define the interval limits for the Automatic Post Scheduler "
+#~ "plugin."
+#~ msgstr ""
+#~ "Šīs vērtības nosaka rakstu publicēšanas intervālus, ko izmanto "
+#~ "\"Automatic Post Scheduler\" spraudnis."
