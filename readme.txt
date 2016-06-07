@@ -2,8 +2,8 @@
 Contributors: tetele, kasparsd
 Tags: posts, schedule, post status, future, scheduler, editorial, scheduling, automatic scheduling, queue posts, queue
 Requires at least: 2.0.2
-Tested up to: 3.8.1
-Stable tag: 0.9.4
+Tested up to: 4.5.2
+Stable tag: trunk
 
 A plugin that automatically schedules posts depending on a min/max threshold and the last post's publish date and time.
 
@@ -12,7 +12,7 @@ A plugin that automatically schedules posts depending on a min/max threshold and
 
 This plugin can be used for defining an editorial plan. WP already does a great job with the Scheduled post status, but what if it could be simpler than that?
 
-When publishing posts, the plugin computes the most recent interval when a post can be published and picks a timestamp in that interval when to publish the post. If the selected interval has already passed since the newest post was published and there are no scheduled posts in the queue, then the new post will automatically be published. 
+When publishing posts, the plugin computes the most recent interval when a post can be published and picks a timestamp in that interval when to publish the post. If the selected interval has already passed since the newest post was published and there are no scheduled posts in the queue, then the new post will automatically be published.
 
 The plugin alters the default behavior of WP when publishing posts from the interface or using code (e.g. `wp_insert_post()`).
 
@@ -43,6 +43,9 @@ Yes, all you have to do is uncheck the *Schedule as soon as possible* box in the
 
 
 == Changelog ==
+
+= 0.9.5 =
+* Tested with WordPress 4.5.2.
 
 = 0.9.4 =
 * Use more readable textdomain. Improve wording on the schedule settings page.
